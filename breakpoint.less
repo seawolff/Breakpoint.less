@@ -5,7 +5,9 @@ Max 480 Breakpoint
 */
 .max-foureighty(){
 	body#main {
-		content:"max-four-eighty";
+		#breakpoint:before {
+			content:"max-four-eighty";
+		}
 	}
 }
 
@@ -16,7 +18,9 @@ Min 480 Breakpoint
 */
 .min-foureighty(){
 	body#main {
-		content:"min-four-eighty";
+		#breakpoint:before {
+			content:"min-four-eighty";
+		}
 	}
 }
 
@@ -27,7 +31,9 @@ Min 480 Breakpoint
 */
 .sevensixtyeight() {
 	body#main {
-		content:"seven-sixty-eight";
+		#breakpoint:before {
+			content:"seven-sixty-eight";
+		}
 	}
 }
 
@@ -38,7 +44,9 @@ Min 480 Breakpoint
 */
 .ninesixty() {
 	body#main {
-		content:"nine-sixty";
+		#breakpoint:before {
+			content:"nine-sixty";
+		}
 	}
 }
 
@@ -49,7 +57,9 @@ Min 480 Breakpoint
 */
 .tweleveeighty() {
 	body#main {
-		content:"twelve-eighty";
+		#breakpoint:before {
+			content:"twelve-eighty";
+		}
 	}
 }
 
@@ -60,7 +70,9 @@ Min 480 Breakpoint
 */
 .nineteentwenty() {
 	body#main {
-		content:"nineteen-twenty";
+		#breakpoint:before {
+			content:"nineteen-twenty";
+		}
 	}
 }
 
@@ -90,7 +102,7 @@ Compiler
 } 
 
 
-body #show-cookie{
-	content: `window.onload = function() {document.getElementById('main').className = window.getComputedStyle(document.getElementById('main'),':before').content}`;
-	content: `window.onresize = function() {document.getElementById('main').className = window.getComputedStyle(document.getElementById('main'),':before').content}`;
+body#main{
+	content: `window.onload = function() {document.getElementById('main').className = window.getComputedStyle(document.getElementById('breakpoint'),':before').content}`;
+	content: `window.onresize = function() {document.getElementById('main').className = window.getComputedStyle(document.getElementById('breakpoint'),':before').content}`;
 }

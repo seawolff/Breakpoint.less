@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en">           <![endif]-->
+<!--[if (gt IE 9)|!(IE)]<!--><html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Breakpoint.less</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet/less" type="text/css" href="breakpoint.less">
+  </head>
+  <body id="main" class="">
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Breakpoint.less</a>
+      </div>
+    </div>
+    <div class="container">
+
+      <div class="header">
+        <h1>Breakpoint.less</h1>
+        <p class="lead">Dynamic breakpoint classes controlled solely in LESS</h5>
+        <p>Add breakpoint-specific classes simply by including a less file.</p>
+        <div class="code row-fluid">
+          <pre class="span6">&lt;body id=&#39;main&#39; class=&#39;<span id="breakpoint"></span>&#39;&gt;</pre>
+        </div>
+      </div>
+
+      <div class="module">
+        <h3>Why LESS? Why not JavaScript?</h3>
+        <p>Breakpoint.less simply removes the need to detect viewport changes in Javascript. Instead it simply passes a classname to the body for each defined breakpoint in the stylesheet.</p> 
+      </div>
+
+      <div class="module">
+        <h3>So why is this useful?</h3>
+        <p>This is simply another way of dynamically customizing your responsive interface. Instead of having to check viewport width via JavaScript, Breakpoint.less will update the body with a custom class based on the viewports current breakpoint.</p> 
+        <p>From here the developer can manipulate form elements etc. as needed in order to optimize the DOM for the current viewport width.</p>
+      </div>
+
+      <div class="module">
+        <h3>How it works...</h3>
+        <p>Breakpoint.less simply gives the body a content property at specified breakpoints. An example:</p>
+
+        <div class="code row-fluid">
+          <pre class="span6">@media(min-width:768px) {
+  body#main {
+    content:"seven-sixty-eight";
+  }
+}</pre>
+        </div>
+
+        <p>From there it simply executes two lines of JavaScript that check onload and on window resize whether that computed style has changed. From there it appends it to the class of the body. Dead simple.</p>
+
+        <div class="code row-fluid">
+          <pre class="span9">body#main{
+  content: `window.onload = function() {
+              document.getElementById('main').className = window.getComputedStyle(
+                document.getElementById('main'),':before').content
+            }`;
+
+  content: `window.onresize = function() {
+              document.getElementById('main').className = window.getComputedStyle(
+                  document.getElementById('main'),':before').content
+            }`;
+}</pre>
+        </div>
+
+        <p>To add a new body class one could simply add another content property to the body class at any specified breakpoint. However by default Breakpoint.less supports the following media queries: <code>max-width:480px</code>, <code>min-width:480px</code>, <code>min-width:768px</code>, <code>min-width:960px</code>, <code>min-width:1280px</code>, <code>min-width:1920px</code></p>
+        <p>To add this functionality simply include the import at the top of your LESS stylesheet: <code>@import "breakpoint";</code></p>
+      </div>
+
+  <script src="less-1.3.0.min.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script>
+
+  </script>
+  </body>
+</html>
+
