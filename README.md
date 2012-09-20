@@ -38,3 +38,5 @@ From there it simply executes two lines of JavaScript that check onload and on w
 To add a new body class one could simply add another content property to the body class at any specified breakpoint. However by default Breakpoint.less supports the following media queries: `max-width:480px`, `min-width:480px`, `min-width:768px`, `min-width:960px`, `min-width:1280px`, `min-width:1920px`
 
 To add this functionality simply include the import at the top of your LESS stylesheet: `@import "breakpoint";`
+
+##[Check out a live demo](http://seawolff.github.com/Breakpoint.less/)
